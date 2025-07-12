@@ -1,0 +1,16 @@
+// User function Template for Java
+
+class Solution {
+    public List<Integer> valueEqualToIndex(List<Integer> nums) {
+        // code here
+        int n = nums.size();
+        List<Integer> ans = new ArrayList<>();
+        for(int i = 0; i < n; i++){
+            if(nums.get(i) == i + 1) {
+                ans.add(i + 1);
+            }
+        }
+        
+        return ans;
+    }
+}
