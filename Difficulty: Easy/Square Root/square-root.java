@@ -1,18 +1,20 @@
 class Solution {
     int floorSqrt(int n) {
-        // code here
-        int l = 1, h = n;
-        int ans = 1;
-        while (l <= h) {
-            int mid = l + (h - l) / 2;
-            if(mid * mid <= n) {
-                ans = mid;
-                l = mid + 1;
-            } else {
-                h = mid - 1;
-            }
-        }
+        double target = Math.sqrt(n);
         
-        return ans;
+        int l = 1, h = n;
+        
+        while(l <= h) {
+            int mid = l + (h - l) / 2;
+            
+            if(mid == target)
+                return mid;
+            else if(mid < target)
+                l = mid + 1;
+                
+            else 
+                h = mid - 1;
+        }
+        return l - 1;
     }
 }
