@@ -1,32 +1,28 @@
-// User function Template for Java
-
 class Solution {
-    // Function to find two elements in array
     ArrayList<Integer> findTwoElement(int arr[]) {
-        // Gautam's code here
+        ArrayList<Integer> ans = new ArrayList<>();
+        
         int n = arr.length;
-        int repeating = -1;
+        int dup = -1;
         for(int i = 0; i < n; i++) {
-            int val = Math.abs(arr[i]);
-            if(arr[val - 1] > 0) {
-                arr[val - 1] = -arr[val - 1];
+            int idx = Math.abs(arr[i]) - 1;
+            
+            if(arr[idx] < 0) {
+                dup = idx + 1;
             } else {
-                repeating = val;
+                arr[idx] = -arr[idx];
             }
         }
         
-        int missing = -1;
+        int mis = -1;
         for(int i = 0; i < n; i++) {
             if(arr[i] > 0) {
-                missing =  i + 1;
-                break;
+                mis = i + 1;
             }
         }
         
-        ArrayList<Integer> ans = new ArrayList<>();
-        ans.add(repeating);
-        ans.add(missing);
+        ans.add(dup);
+        ans.add(mis);
         return ans;
-        
     }
 }
